@@ -70,4 +70,85 @@ mysql> select version();
 | 8.0.29    |
 +-----------+
 1 row in set (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| example_app        |
+| information_schema |
+| testing            |
++--------------------+
+3 rows in set (0.01 sec)
 ```
+
+db作成  
+`sail artisan make:migration create_tweets_table`  
+下記に作成された  
+my-laravel9/database/migrations/2022_07_14_030453_create_tweets_table.php  
+
+```
+mysql> show tables from example_app;
++------------------------+
+| Tables_in_example_app  |
++------------------------+
+| failed_jobs            |
+| migrations             |
+| password_resets        |
+| personal_access_tokens |
+| tweets                 |
+| users                  |
++------------------------+
+6 rows in set (0.00 sec)
+```
+
+テーブル作成確認  
+mysql> use example_app;
+Database changed
+mysql> show columns from tweets;
++------------+-----------------+------+-----+---------+----------------+
+| Field      | Type            | Null | Key | Default | Extra          |
++------------+-----------------+------+-----+---------+----------------+
+| id         | bigint unsigned | NO   | PRI | NULL    | auto_increment |
+| content    | varchar(255)    | NO   |     | NULL    |                |
+| created_at | timestamp       | YES  |     | NULL    |                |
+| updated_at | timestamp       | YES  |     | NULL    |                |
++------------+-----------------+------+-----+---------+----------------+
+4 rows in set (0.03 sec)
+
+■マイグレーションの動作  
+<p><img src="./_images/chap2_img2.png" alt="" /></p> 
+
+■シーダー一括&実行   
+❯ sail artisan make:seeder TweetsSeeder
+Seeder created successfully.
+
+シーティング済み
+```
+my-laravel9 on  master [!+?] via  v16.13.1 via 🐘 v8.1.7 took 2s 
+❯ sail artisan db:seed
+Seeding: Database\Seeders\TweetsSeeder
+Seeded:  Database\Seeders\TweetsSeeder (59.01ms)
+Database seeding completed successfully.
+```
+
+■シーダーの動作  
+<p><img src="./_images/chap2_img3.png" alt="" /></p> 
+
+■dbの確認  
+```
+mysql> use example_app;
+Database changed
+mysql> select * from tweets;
++----+------------------------------------------------------------------------------------------------------+---------------------+---------------------+
+| id | content                                                                                              | created_at          | updated_at          |
++----+------------------------------------------------------------------------------------------------------+---------------------+---------------------+
+|  1 | lNqeP8qYDoraFjJQDjdqDfog3KutxPZ7XojW0atjy0CthULpfQlty6bfStkDH05ommRlmROIS8nXgIH5JdOjdFVgnIcvFosB0aFt | 2022-07-14 03:24:58 | 2022-07-14 03:24:58 |
+|  2 | p50oGqKwEaIc75K9rb2JPqL0G0rh2z2zJHysS8H5XXs8njxPNSsqh7Tq61EwLVBWEdJJFL26AIuRNBSbqmQ2UFKr4oEUMmWAoGwX | 2022-07-14 03:26:35 | 2022-07-14 03:26:35 |
++----+------------------------------------------------------------------------------------------------------+---------------------+---------------------+
+2 rows in set (0.00 sec)
+```
+
+**続き**  
+■Eloquentモデル〜  
+20%まで  
