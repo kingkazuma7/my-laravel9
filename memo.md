@@ -161,3 +161,7 @@ mysql> select * from tweets;
 
 つまり  
 https://qiita.com/Hashimoto-Noriaki/items/b9c40f86c2a59728be0b
+
+**■エラー解決**  
+`my-laravel9/database/seeders/TweetsSeeder.php`を変更  
+envも？  
