@@ -152,3 +152,12 @@ mysql> select * from tweets;
 **続き**  
 ■Eloquentモデル〜  
 20%まで  
+
+■Eloquentモデル作成
+`sail artisan make:model Tweet`  
+
+■Factory作成
+`sail artisan make:factory TweetFactory --model=Tweet`  
+
+つまり  
+https://qiita.com/Hashimoto-Noriaki/items/b9c40f86c2a59728be0b
