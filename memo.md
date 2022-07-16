@@ -165,3 +165,6 @@ https://qiita.com/Hashimoto-Noriaki/items/b9c40f86c2a59728be0b
 **■エラー解決**  
 `my-laravel9/database/seeders/TweetsSeeder.php`を変更  
 envも？  
+
+■シーダーの動作  
+<p><img src="./_images/chap2_img4.png" alt="" /></p> 
