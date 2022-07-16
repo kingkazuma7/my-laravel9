@@ -17,15 +17,6 @@ class TweetsSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tweets')->insert([
-            'content' => Str::random(100),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        // Tweet::factory()->count(10)->create();
+        Tweet::factory()->count(10)->create();
     }
-    // public function run()
-    // {
-    //     Tweet::factory()->count(10)->create();
-    // }
 }

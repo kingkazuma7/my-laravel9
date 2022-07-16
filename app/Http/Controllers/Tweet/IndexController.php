@@ -17,10 +17,9 @@ class IndexController extends Controller
     public function __invoke(Request $request)
     {
         $tweets = Tweet::all();
-        dd($tweets);
+        // dd($tweets);
         return view('tweet.index')
-            ->with('name', 'laravel')
-            ->with('version', '8');
+            ->with('tweets', $tweets);
         // return view('tweet.index', ['name' => 'laravel']);
     }
 

@@ -8,6 +8,10 @@
 </head>
 <body>
   <h1>つぶやきアプリ</h1>
-  <p>tweet.indexでname変数呼び出し：　{{ $name }}</p>
+  <div>
+      @foreach($tweets as $tweet)
+      <p>{{ $tweet->content }}</p>
+      @endforeach
+  </div>
 </body>
 </html>
