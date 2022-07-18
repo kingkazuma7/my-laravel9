@@ -168,3 +168,15 @@ https://qiita.com/Hashimoto-Noriaki/items/b9c40f86c2a59728be0b
 
 ■シーダーの動作  
 <p><img src="./_images/chap2_img4.png" alt="" /></p> 
+
+0718~
+
+■コントローラー作成  
+`sail artisan make:controller Tweet/CreateController --invokable  
+Controller created successfully.`
+
+バリデーション参考  
+https://readouble.com/laravel/9.x/ja/validation.html  
+
+■コントローラーの動作  
+<p><img src="./_images/chap2_img5.png" alt="" /></p> 
